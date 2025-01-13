@@ -30,7 +30,7 @@
       }
   }
 \cs_new_protected:Npn \drx@fill@mbox #1
-  { \exp_last_unbraced:Nx \mbox { \str_if_eq:nnT {#1} { \fill }{ {} } } }
+  { \exp_last_unbraced:Nx \mbox { \str_if_eq:nnT {#1} { \fill } { {} } } }
 \ExplSyntaxOff
 \NewDocumentCommand{\drx@parse@dash}
   {mm>{\SplitArgument{1}{:}}m}
