@@ -1,7 +1,7 @@
 %
 % ***************** THE DASHRULEX PACKAGE *****************
 %
-% Copyright (C) 2024 by Qu Yi <toquyi@163.com>
+% Copyright (C) 2024-2025 by Qu Yi <toquyi@163.com>
 %
 % This work may be distributed and/or modified under the
 % conditions of the CC-BY 4.0 License.
@@ -9,14 +9,14 @@
 %   https://creativecommons.org/licenses/by/4.0/legalcode
 \NeedsTeXFormat{LaTeX2e}[2012/02/12]
 \RequirePackage{xparse}
-\ProvidesExplPackage{dashrulex}{2024/10/22}{1.01d}
+\ProvidesExplPackage{dashrulex}{2025/01/13}{1.02}
   {Draw dashed rules}
 \DeclareDocumentCommand{\hdashrule}{O{0pt}O{x}mmm}
   {
     \tl_if_blank:nTF {#5}
       { \rule[#1]{#3}{#4} }
       {
-        \mbox
+        \drx@fill@mbox{#3}
           {
             \use:c { #2leaders }
             \hbox:n
@@ -26,11 +26,16 @@
               }
             \skip_horizontal:n {#3}
           }
+        \mbox{}
       }
   }
+\cs_new_protected:Npn \drx@fill@mbox #1
+  { \exp_last_unbraced:Nx \mbox { \str_if_eq:nnT {#1} { \fill }{ {} } } }
+\ExplSyntaxOff
 \NewDocumentCommand{\drx@parse@dash}
-  {mm>{\SplitArgument{1}{|}}m}
+  {mm>{\SplitArgument{1}{:}}m}
   {\drx@parse@dash@inner{#1}{#2}#3}
+\ExplSyntaxOn
 \cs_set_protected:Npn \drx@parse@dash@inner #1#2#3#4
   {
     \IfNoValueTF{#4}
@@ -39,12 +44,13 @@
   }
 \NewDocumentCommand{\hanyrule}{O{x}mm}
   {
-    \mbox
+    \drx@fill@mbox{#2}
       {
         \use:c { #1leaders }
         \hbox:n { \clist_map_inline:nn {#3} {##1} }
         \skip_horizontal:n {#2}
       }
+    \mbox{}
   }
 
 \int_new:N \l__drx_vrule_counter_int

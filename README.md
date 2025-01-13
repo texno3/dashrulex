@@ -1,5 +1,5 @@
 # The `dashrulex` package
-Draw dashed rules (v1.01d)
+Draw dashed rules (v1.02)
 
 ## Abstract
 The `dashrulex` package provides a flexible solution for drawing dashed rules in the body, and currently provides two commands `\hdashrule` and `\hanyrule`. It's written in LaTeX3 and can be used as an alternative to the `dashrule` package.
