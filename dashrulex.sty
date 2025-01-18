@@ -9,7 +9,7 @@
 %   https://creativecommons.org/licenses/by/4.0/legalcode
 \NeedsTeXFormat{LaTeX2e}[2012/02/12]
 \RequirePackage{xparse}
-\ProvidesExplPackage{dashrulex}{2025/01/13}{1.02}
+\ProvidesExplPackage{dashrulex}{2025/01/18}{1.02a}
   {Draw dashed rules}
 \DeclareDocumentCommand{\hdashrule}{O{0pt}O{x}mmm}
   {
@@ -30,7 +30,7 @@
       }
   }
 \cs_new_protected:Npn \drx@fill@mbox #1
-  { \exp_last_unbraced:Nx \mbox { \str_if_eq:nnT {#1} { \fill } { {} } } }
+  { \str_if_eq:nnTF {#1} { \fill } { \mbox{}\use:n } { \mbox } }
 \ExplSyntaxOff
 \NewDocumentCommand{\drx@parse@dash}
   {mm>{\SplitArgument{1}{:}}m}
