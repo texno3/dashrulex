@@ -7,8 +7,8 @@
   {
     package           = dashrulex,
     title             = dashrulex,
-    version           = v1.02a,
-    date              = 2025/01/18,
+    version           = v1.02d,
+    date              = 2025/02/04,
     authors           = Qu Yi,
     title             = \dashrulex{} package,
     info              = Draw dashed rules,
@@ -66,7 +66,9 @@ Sometimes it is necessary to draw dashed rules when writing documents, such as g
 8X\hdashrule[0.5ex]{4cm-3mm}{1mm}{3mm}\vrulemod[0.5ex]{3mm}{1mm}x \\
 9X\hdashrule[0.5ex]{4cm}{1mm}{3mm:3pt}x \\
 10X\hdashrule[0.5ex]{4cm}{1mm}{3mm:3pt,1mm:2pt}x \\
-11X\hdashrule[0.5ex]{4cm}{2pt,1pt,1pt}{3mm:3pt,1mm:2pt}x
+11X\hdashrule[0.5ex]{4cm}{2pt,1pt,1pt}{3mm:3pt,1mm:2pt}x \\
+12X\hdashrule[0.5ex]{\fill}{2pt,1pt,1pt}{3mm:3pt,1mm:2pt}x \\
+13X\hdashrule[0.5ex]{\fill}{1pt}{}x
 \end{demohigh}
   \command{vrulemod}[\oarg{raise}\oarg{height}\oarg{depth}\marg{width}\marg{thickness list}]
   The vertical model used to fill the dashed line. \meta{thickness list} is consistent with the \cs{hdashrule} command, \meta{width} represents the length of the component, and the three optional parameters are consistent with those of the \cs{raisebox} command.
